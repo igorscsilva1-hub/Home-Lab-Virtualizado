@@ -34,6 +34,10 @@ Atualização de sistema.
 ```bash
 sudo apt update && sudo apt upgrade -y
 ```
+Ferramenta tree para exibição da estrutura hierárquica dos diretórios e arquivos em formato visual de árvore.
+```bash
+sudo apt instal tree -y
+```
 ## Testes realizados
 
 ## Problemas encontrados
