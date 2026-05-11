@@ -24,9 +24,9 @@ ping 192.168.56.11
 ### Resultado
 Ambos os testes retornaram respostas, confirmando a comunicação entre as VMs.
 
-[ubuntu-server para ubuntu-server2](../imagens/ubuntu/ping-ubuntuserver-vm2.png)
+![ubuntu-server para ubuntu-server2](../imagens/ubuntu/ping-ubuntuserver-vm2.png)
 
-[ubuntu-server2 para ubuntu-server](../imagens/ubuntu/ping-vm2-ubuntuserver.png)
+![ubuntu-server2 para ubuntu-server](../imagens/ubuntu/ping-vm2-ubuntuserver.png)
 
 ## Topologia futura (com pfSense)
 
