@@ -23,9 +23,11 @@ ping 192.168.56.11
 
 ### Resultado
 Ambos os testes retornaram respostas, confirmando a comunicação entre as VMs.
-[ubuntu-server para ubuntu-server2](../Home-Lab-Virtualizado/imagens/ubuntu/ping-ubuntuserver-vm2.png)
 
-[ubuntu-server2 para ubuntu-server](../Home-Lab-Virtualizado/imagens/ubuntu/ping-vm2-ubuntuserver.png)
+[ubuntu-server para ubuntu-server2](../imagens/ubuntu/ping-ubuntuserver-vm2.png)
+
+[ubuntu-server2 para ubuntu-server](../imagens/ubuntu/ping-vm2-ubuntuserver.png)
+
 ## Topologia futura (com pfSense)
 
 O pfSense assumirá o controle de roteamento e DHCP interno. As VMs passarão a usar Internal Network, com o pfSense como gateway, assim eliminando a dependência do roteador doméstico para comunicação entre VMs.
