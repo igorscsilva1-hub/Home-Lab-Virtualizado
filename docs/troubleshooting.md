@@ -29,10 +29,12 @@ para:
 modo Bridge
 
 ![Configuração Bridge Adapter](../imagens/ubuntu/virtualbox-ubuntuserver-bridge.png)
+
 Após alteração, a VM recebeu um IP da rede local.
 
 ![Resultado do comando ip a](..imagens/ubuntu/ip-ubuntu-server-bridge.png)
 
 ### Resultado
 Conexão SSH estabelecida com sucesso entre o host Windows e a VM Ubuntu Server.
+
 ![SSH conectado](..imagens/ubuntu/ssh-ubuntuserver-windows.png)
