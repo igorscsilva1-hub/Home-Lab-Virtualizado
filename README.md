@@ -22,3 +22,13 @@ O ambiente utiliza VirtualBox, pfSense, Ubuntu Server e Windows Server para simu
 - NAT
 - DHCP
 - DNS
+
+## Versões
+
+### v1.0
+- Estrutura inicial criada
+
+### v1.1
+- Ubuntu Server configurado
+- SSH habilitado
+
