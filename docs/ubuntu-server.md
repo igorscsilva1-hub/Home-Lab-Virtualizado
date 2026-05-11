@@ -14,8 +14,6 @@ Ubuntu Server 24.04.4 LS
 ## Instalação
 
 ## Configuração de rede
-## Configuração de rede
-
 A VM possui duas interfaces de rede configuradas simultaneamente:
 
 | Interface | Modo | IP | Função |
