@@ -6,7 +6,7 @@ O ambiente utiliza VirtualBox, pfSense, Ubuntu Server e Windows Server para simu
 
 ## Objetivos
 
-- Aprender virtualização
+- Praticar virtualização
 - Praticar configuração de redes
 - Estudar firewall e roteamento
 - Trabalhar com Linux e Windows Server
