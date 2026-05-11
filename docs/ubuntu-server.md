@@ -18,7 +18,15 @@ Ubuntu Server 24.04.4 LS
 ## Instalação e Configuração SSH
 Instalação do serviço OpenSSH para permitir acesso remoto a VM.
 ```bash
-apt install openssh-server
+sudo apt install openssh-server
+```
+Para verificar o status do serviço SSH.
+```bash
+sudo service ssh status
+```
+Por fim, para liberar as portas do SSH no Firewall UFW do Ubuntu.
+```bash
+sudo ufw allow ssh
 ```
 
 ## Serviços instalados
