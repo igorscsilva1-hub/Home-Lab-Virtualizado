@@ -32,3 +32,9 @@ O ambiente utiliza VirtualBox, pfSense, Ubuntu Server e Windows Server para simu
 - Ubuntu Server configurado
 - SSH habilitado
 
+### v1.2
+- Adaptador de rede Host-Only adicionado ao Ubuntu Server
+- SSH mais estável
+- Ubuntu Server clonado para teste de conexão entre VMs
+  
+
