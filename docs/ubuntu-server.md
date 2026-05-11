@@ -6,7 +6,7 @@
 - 2 vCPUs
 - 2 GB RAM
 - 20 GB Disco
-- Adaptador NAT
+- Adaptador NAT (posteriormente alterado para Bridge)
 
 ## ISO
 Ubuntu Server 24.04.4 LS
@@ -34,5 +34,7 @@ sudo ufw allow ssh
 ## Testes realizados
 
 ## Problemas encontrados
+### Serviço SSH não funcionava entre host Windows e a VM Ubuntu Server. 
+Após alteração da rede de NAT para Bridge, serviço funcionou corretamente.
 
 ## Conclusão
