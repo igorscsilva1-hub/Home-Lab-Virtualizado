@@ -14,7 +14,42 @@ Ubuntu Server 24.04.4 LS
 ## Instalação
 
 ## Configuração de rede
+## Configuração de rede
 
+A VM possui duas interfaces de rede configuradas simultaneamente:
+
+| Interface | Modo | IP | Função |
+|---|---|---|---|
+| enp0s3 | Bridge | 192.168.18.39 (dinâmico) | Acesso à internet |
+| enp0s8 | Host-Only | 192.168.56.10 (fixo) | SSH estável do host |
+
+### IP fixo via Netplan
+
+A interface `enp0s8` foi configurada com IP estático editando o arquivo `/etc/netplan/50-cloud-init.yaml`:
+
+```yaml
+network:
+  version: 2
+  ethernets:
+    enp0s3:
+      dhcp4: true
+    enp0s8:
+      dhcp4: no
+      addresses:
+        - 192.168.56.10/24
+```
+
+Após editar, aplicar com:
+
+```bash
+sudo netplan apply
+```
+
+### Acesso SSH pelo host
+
+```bash
+ssh igor@192.168.56.10
+```
 ## Instalação e Configuração SSH
 Instalação do serviço OpenSSH para permitir acesso remoto a VM.
 ```bash
