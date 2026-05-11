@@ -30,7 +30,10 @@ sudo ufw allow ssh
 ```
 
 ## Serviços instalados
-
+Atualização de sistema.
+```bash
+sudo apt update && sudo apt upgrade -y
+```
 ## Testes realizados
 
 ## Problemas encontrados
