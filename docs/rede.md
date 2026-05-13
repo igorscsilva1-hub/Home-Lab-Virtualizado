@@ -28,6 +28,36 @@ Ambos os testes retornaram respostas, confirmando a comunicação entre as VMs.
 
 ![ubuntu-server2 para ubuntu-server](../imagens/ubuntu/ping-vm2-ubuntuserver.png)
 
+## Teste de comunicação via Internal Network
+
+### Configuração
+
+| VM | Interface | IP |
+|---|---|---|
+| ubuntu-server | enp0s9 | 10.0.0.1 |
+| ubuntu-server-02 | enp0s9 | 10.0.0.2 |
+
+### Modo Internal Network
+
+VMs se comunicam em rede completamente isolada. O host não participa.  
+Esse é o modo que será usado futuramente com o pfSense como gateway controlando o tráfego interno.
+
+### Teste realizado
+
+```bash
+# Na ubuntu-server-02
+ping 10.0.0.1
+
+# Na ubuntu-server
+ping 10.0.0.2
+```
+
+### Resultado
+
+Ambos retornaram sucesso, confirmando isolamento e comunicação entre VMs.
+
+![ubuntu-server para ubuntu-server-02 e vice-versa](../imagens/ubuntu/ping-vm2-ubuntuserver-redeinterna.png)
+
 ## Topologia futura (com pfSense)
 
 O pfSense assumirá o controle de roteamento e DHCP interno. As VMs passarão a usar Internal Network, com o pfSense como gateway, assim eliminando a dependência do roteador doméstico para comunicação entre VMs.
