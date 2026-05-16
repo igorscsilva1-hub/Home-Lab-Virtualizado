@@ -48,7 +48,7 @@ Atualmente o ambiente utiliza três tipos principais de rede no Oracle VirtualBo
 
 ---
 
-## Comunicação Host ↔ VM
+## Comunicação entre Host e VM
 
 A rede Host-Only é utilizada para:
 
