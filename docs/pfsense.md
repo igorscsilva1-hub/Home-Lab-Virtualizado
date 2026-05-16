@@ -38,8 +38,8 @@ Inicialmente foi utilizada a ISO da Netgate (pfSense CE v1.2), porém ocorreram 
 
 | Adaptador | Tipo de rede |
 |---|---|
-| Adaptador 1 | Bridge |
-| Adaptador 2 | Internal Network |
+| Adaptador 1 | Rede Interna |
+| Adaptador 2 | Bridge |
 | Adaptador 3 | Host-Only |
 
 ---
