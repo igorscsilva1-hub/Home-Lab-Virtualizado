@@ -22,9 +22,17 @@ Inicialmente foi utilizada a ISO da Netgate (pfSense CE v1.2), porém ocorreram 
 - Instalação concluída com sucesso
 - Ambiente estabilizado após troca da ISO
 
+### Instalação concluida:
+
+![Instalação OPNsense](../imagens/opnsense/opnsense-instalacaocompleta.png)
+
 ---
 
 ## Interfaces WAN e LAN
+
+### Primeiro boot do sistema
+
+![Primeiro boot](..imagens/opnsense/opnsense-primeiroboot.png)
 
 ### Configuração atual
 
@@ -33,6 +41,10 @@ Inicialmente foi utilizada a ISO da Netgate (pfSense CE v1.2), porém ocorreram 
 | WAN | Acesso à rede externa | 192.168.18.45 |
 | LAN | Rede interna das VMs | 192.168.100.1 |
 | OPT1 | Rede Host-Only para gerenciamento | 192.168.56.1 |
+
+### Interfaces configuradas
+
+![Interfaces configuradas](..imagens/opnsense/opnsense-configurado.png)
 
 ### Redes utilizadas no VirtualBox
 
@@ -57,6 +69,14 @@ Após a configuração da interface LAN:
 - Ping entre VMs Ubuntu
 - Verificação de roteamento interno
 - Teste de comunicação passando pelo firewall virtual
+
+
+### Teste de comunicação entre VMs
+As duas máquinas Ubuntu conseguiram se comunicar usando o OPNsense como gateway da rede interna.
+
+![Ping entre ubuntu-server e ubuntu-server02](..imagens/ubuntu/ping-ubuntuserver-vm2-opnsensegateway.png)
+
+![Ping entre ubuntu-server02 e ubuntu-server](..imagens/ubuntu/ping-vm2-ubuntuserver-opnsensegateway.png)
 
 ---
 
