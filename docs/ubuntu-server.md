@@ -2,28 +2,40 @@
 
 ## Objetivo da VM
 
+Servidor Linux base do laboratório, utilizado para estudos de administração de sistemas,
+configuração de redes virtuais e integração com os demais componentes do ambiente.
+
 ## Configuração da máquina virtual
+
 - 2 vCPUs
 - 2 GB RAM
 - 20 GB Disco
-- Adaptador NAT (posteriormente alterado para Bridge)
+- Adaptador 1: Internal Network — `intnet` (rede interna controlada pelo OPNsense)
+- Adaptador 2: Bridge (acesso à internet)
+- Adaptador 3: Host-Only (SSH estável)
 
 ## ISO
-Ubuntu Server 24.04.4 LS
+
+Ubuntu Server 24.04.4 LTS
 
 ## Instalação
 
+Instalação padrão via ISO com usuário `igor` criado durante o processo.
+
 ## Configuração de rede
-A VM possui duas interfaces de rede configuradas simultaneamente:
+
+A VM possui três interfaces de rede configuradas simultaneamente:
 
 | Interface | Modo | IP | Função |
 |---|---|---|---|
 | enp0s3 | Bridge | 192.168.18.39 (dinâmico) | Acesso à internet |
 | enp0s8 | Host-Only | 192.168.56.10 (fixo) | SSH estável do host |
+| enp0s9 | Internal Network | 192.168.100.10 (fixo) | Rede interna via OPNsense |
 
 ### IP fixo via Netplan
 
-A interface `enp0s8` foi configurada com IP estático editando o arquivo `/etc/netplan/50-cloud-init.yaml`:
+As interfaces `enp0s8` e `enp0s9` foram configuradas com IP estático editando o arquivo
+`/etc/netplan/50-cloud-init.yaml`:
 
 ```yaml
 network:
@@ -35,6 +47,13 @@ network:
       dhcp4: no
       addresses:
         - 192.168.56.10/24
+    enp0s9:
+      dhcp4: no
+      addresses:
+        - 192.168.100.10/24
+      routes:
+        - to: default
+          via: 192.168.100.1
 ```
 
 Após editar, aplicar com:
@@ -48,33 +67,58 @@ sudo netplan apply
 ```bash
 ssh igor@192.168.56.10
 ```
+
 ## Instalação e Configuração SSH
-Instalação do serviço OpenSSH para permitir acesso remoto a VM.
+
+Instalação do serviço OpenSSH para permitir acesso remoto à VM.
+
 ```bash
 sudo apt install openssh-server
 ```
-Para verificar o status do serviço SSH.
+
+Para verificar o status do serviço SSH:
+
 ```bash
 sudo service ssh status
 ```
-Por fim, para liberar as portas do SSH no Firewall UFW do Ubuntu.
+
+Para liberar as portas do SSH no Firewall UFW do Ubuntu:
+
 ```bash
 sudo ufw allow ssh
 ```
 
 ## Serviços instalados
-Atualização de sistema.
+
+Atualização do sistema:
+
 ```bash
 sudo apt update && sudo apt upgrade -y
 ```
-Ferramenta tree para exibição da estrutura hierárquica dos diretórios e arquivos em formato visual de árvore.
+
+Ferramenta tree para exibição da estrutura hierárquica de diretórios:
+
 ```bash
-sudo apt instal tree -y
+sudo apt install tree -y
 ```
+
 ## Testes realizados
 
+- Acesso SSH via Host-Only (`192.168.56.10`) — sucesso
+- Ping para gateway OPNsense (`192.168.100.1`) — sucesso
+- Ping para ubuntu-server-02 (`192.168.100.11`) — sucesso
+
 ## Problemas encontrados
-### Serviço SSH não funcionava entre host Windows e a VM Ubuntu Server. 
-Após alteração da rede de NAT para Bridge, serviço funcionou corretamente.
+
+### SSH não funcionava entre host Windows e VM Ubuntu Server
+Modo de rede NAT não permitia acesso direto do host à VM. Solução: alteração para Bridge
+no Adaptador 1 e adição de interface Host-Only com IP fixo para SSH estável.
+
+### IP dinâmico causaria instabilidade no SSH
+Interface Bridge usa DHCP do roteador doméstico, podendo mudar o IP a cada reinicialização.
+Solução: configuração de IP fixo na interface Host-Only (`enp0s8`) via Netplan.
 
 ## Conclusão
+
+VM operacional com três interfaces de rede configuradas. Acesso SSH estável via Host-Only.
+Integrada à rede interna do laboratório (`192.168.100.x`) com o OPNsense como gateway.
