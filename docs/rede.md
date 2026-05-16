@@ -148,7 +148,7 @@ As VMs conseguiram se comunicar corretamente utilizando o OPNsense como gateway 
 
 ![Ping entre ubuntu-server e ubuntu-server02](../imagens/ubuntu/ping-ubuntuserver-vm2-opnsensegateway.png)
 
-![Ping entre ubuntu-server02 e ubuntu-server](../imagens/ubuntu/ping-vm2-ubuntu-server-opnsensegateway.png)
+![Ping entre ubuntu-server02 e ubuntu-server](../imagens/ubuntu/ping-vm2-ubuntuserver-opnsensegateway.png)
 
 ---
 
